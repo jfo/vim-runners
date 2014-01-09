@@ -6,8 +6,8 @@
 " set up c make compile to tmp file and then delete it after running the
 " output.
 
-autocmd FileType ruby command! Run !ruby %
-autocmd FileType scheme command! Run !petite --script %
 
-" autocmd FileType ruby <ESC>:w<CR>:!ruby %<CR>
-" autocmd FileType scheme nnoremap <F12> <ESC>:w<CR>:!petite --script %<CR>
+command! Run echo 'Interpreter unavailable'
+autocmd FileType ruby command! Run w % | !ruby %
+autocmd FileType scheme command! Run w % | !petite --script %
+autocmd FileType python command! Run w % | !python %
