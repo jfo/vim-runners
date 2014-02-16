@@ -7,11 +7,22 @@
 " output.
 
 
-command! Run echo 'Interpreter unavailable'
-autocmd FileType ruby command! Run w % | !ruby %
-autocmd FileType scheme command! Run w % | !petite --script %
-autocmd FileType python command! Run w % | !python %
+function! Runners()
+  command! Run echo 'Interpreter unavailable'
+
+  if (&ft=='ruby')
+    :command! Run w % | !ruby %
+  elseif (&ft=='scheme')
+    :command! Run w % | !petite --script %
+  elseif (&ft=='python')
+    command! Run w % | !python %
+  elseif (&ft=='c')
+    command! Run w % | silent !gcc %
+  endif
+
+endfunction
+
+autocmd BufEnter call Runners()
 
 
-autocmd FileType c command! Compile w % | !gcc %
-autocmd FileType c command! Run !./a.out
+
