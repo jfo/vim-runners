@@ -16,6 +16,8 @@ function! Runners()
     :command! Run w % | !petite --script %
   elseif (&ft=='python')
     command! Run w % | !python %
+  elseif (&ft=='javascript')
+    command! Run w % | !node %
   elseif (&ft=='c')
     command! Run w % | silent !gcc %
   endif
