@@ -14,6 +14,8 @@ function! Runners()
     :command! Run w % | !ruby %
   elseif (&ft=='scheme')
     :command! Run w % | !petite --script %
+  elseif (&ft=='php')
+    :command! Run w % | !php %
   elseif (&ft=='python')
     command! Run w % | !python %
   elseif (&ft=='javascript')
