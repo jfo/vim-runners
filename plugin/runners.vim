@@ -6,6 +6,11 @@
 " set up c make compile to tmp file and then delete it after running the
 " output.
 
+command! -nargs=1 SilentRunner
+\ | execute ':!'.<q-args>
+\ | execute ':redraw!'
+\ | execute ':!./a.out'
+\ | execute ':!rm a.out'
 
 function! Runners()
   command! Run echo 'Interpreter unavailable'
@@ -21,12 +26,9 @@ function! Runners()
   elseif (&ft=='javascript')
     command! Run w % | !node %
   elseif (&ft=='c')
-    command! Run w % | silent !gcc %
+    command! Run w % | SilentRunner cc %
   endif
 
 endfunction
 
 autocmd BufEnter call Runners()
-
-
-
