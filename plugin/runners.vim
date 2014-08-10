@@ -26,7 +26,7 @@ function! Runners()
   elseif (&ft=='javascript')
     command! Run w % | !node %
   elseif (&ft=='c')
-    command! Run w % | SilentRunner cc %
+    command! Run w % | SilentRunner cc -std=c99 -Wall % -ledit
   endif
 
 endfunction
