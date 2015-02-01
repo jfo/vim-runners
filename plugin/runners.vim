@@ -25,6 +25,8 @@ function! Runners()
     command! Run w % | !python %
   elseif (&ft=='javascript')
     command! Run w % | !node %
+  elseif (&ft=='scala')
+    command! Run w % | !scala %
   elseif (&ft=='c')
     command! Run w % | SilentRunner cc -std=c99 -Wall % -ledit
   elseif (&ft=='arduino')
