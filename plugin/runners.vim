@@ -31,6 +31,8 @@ function! Runners()
     command! Run w % | SilentRunner cc -std=c99 -Wall % -ledit
   elseif (&ft=='arduino')
     command! Run w % | !ino build && ino upload
+  elseif (&ft=='haskell')
+    command! Run w % | !runhaskell %
   endif
 
 endfunction
