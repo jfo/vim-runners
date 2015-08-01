@@ -33,6 +33,8 @@ function! Runners()
     command! Run w % | !ino build && ino upload
   elseif (&ft=='haskell')
     command! Run w % | !runhaskell %
+  elseif (&ft=='lisp')
+    command! Run w % | !clisp %
   endif
 
 endfunction
