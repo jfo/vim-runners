@@ -19,6 +19,8 @@ function! Runners()
     :command! Run w % | !ruby %
   elseif (&ft=='chuck')
     :command! Run w % | !chuck %
+  elseif (&ft=='markdown')
+    :command! Run w % | !markdown %
   elseif (&ft=='scheme')
     :command! Run w % | !petite --script %
   elseif (&ft=='php')
