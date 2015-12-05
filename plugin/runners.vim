@@ -17,6 +17,8 @@ function! Runners()
 
   if (&ft=='ruby')
     :command! Run w % | !ruby %
+  elseif (&ft=='swift')
+    :command! Run w % | !swift %
   elseif (&ft=='chuck')
     :command! Run w % | !chuck %
   elseif (&ft=='markdown')
