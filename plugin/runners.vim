@@ -19,6 +19,8 @@ function! Runners()
     :command! Run w % | !ruby %
   elseif (&ft=='swift')
     :command! Run w % | !swift %
+  elseif (&ft=='go')
+    :command! Run w % | !go run %
   elseif (&ft=='sh')
     :command! Run w % | !bash %
   elseif (&ft=='chuck')
