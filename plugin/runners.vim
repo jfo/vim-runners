@@ -19,12 +19,16 @@ function! Runners()
     :command! Run w % | !ruby %
   elseif (&ft=='swift')
     :command! Run w % | !swift %
+  elseif (&ft=='go')
+    :command! Run w % | !go run %
   elseif (&ft=='chuck')
     :command! Run w % | !chuck %
   elseif (&ft=='markdown')
     :command! Run w % | !markdown %
   elseif (&ft=='scheme')
     :command! Run w % | !petite --script %
+  elseif (&ft=='sild')
+    :command! Run w % | !./sild %
   elseif (&ft=='php')
     :command! Run w % | !php %
   elseif (&ft=='python')
