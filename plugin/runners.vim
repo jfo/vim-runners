@@ -40,7 +40,11 @@ function! Runners()
   elseif (&ft=='scala')
     command! Run w % | !scala %
   elseif (&ft=='c')
-    command! Run w % | SilentRunner cc -std=c99 -Wall % -ledit
+     if filereadable("./makefile")
+        command! Run w % | :make! -s run
+    else
+        command! Run w % | SilentRunner cc -std=c99 -Wall % -ledit
+    endif
   elseif (&ft=='arduino')
     command! Run w % | !ino build && ino upload
   elseif (&ft=='haskell')
