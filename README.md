@@ -62,6 +62,11 @@ like this:
 nnoremap <LEADER>g :Run<CR>
 ```
 
+Installation
+-----------
+
+I like [Vundle](https://github.com/VundleVim/Vundle.vim) but I'm not the boss of you.
+
 License
 -------
 
