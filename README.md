@@ -25,8 +25,25 @@ Currently supports:
 - Bash
 - a few more!
 
+Adding rules
+-----------
+Adding a rule is easy. Just duplicate an `elsif` block:
+
+```
+    elseif (&ft=='python')
+        command! Run w % | !python %
+```
+
+And change stuff around so it does what you want
+
+```
+    elseif (&ft=='LOLCODE')
+        command! Run w % | !lci %
+```
+
 C
-=
+-
+
 If a makefile named "makefile" exists in the working directory, `Run` will
 attempt to execute a rule called 'run', essentially delegating its behavior to
 the makefile. The run rule would likely rely on the main executable rule, and
@@ -38,7 +55,12 @@ itself by deleting it. Useful for quickly trying out something in a lone `main()
 On entry into a buffer, Run is redefined to refer to the appropriate command
 for that filetype. If no mapping is found, `Run` will echo 'Interpreter unavailable'
 
-I mapped `Run` to `<LEADER>g` and I lost 5 pounds.
+I mapped `Run` to `<LEADER>g` and I lost 5 pounds. Looks
+like this:
+
+```
+nnoremap <LEADER>g :Run<CR>
+```
 
 License
 -------

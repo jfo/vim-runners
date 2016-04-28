@@ -71,5 +71,5 @@ function! Runners()
 endfunction
 
 " On entry into a buffer, Runners() is called to redefine `Run` to refer to
-" the appropriate command. I map `Run` to <LEADER>g and I lost 5 pounds.
+" the appropriate command.
 :autocmd BufEnter * :call Runners()
