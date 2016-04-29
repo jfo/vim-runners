@@ -6,9 +6,6 @@
 "   Make everything feel like a script.
 
 function! Runners()
-    " Run is always defined as this message. This definition will fall through
-    " if no filetype match is found.
-    command! Run echo 'Interpreter unavailable'
 
     " scripty scripty langs! js depends on node.
     if (&ft=='ruby')
@@ -67,6 +64,8 @@ function! Runners()
     elseif (&ft=='haskell')
         " I've never even written haskell why is this even here.
         :command! Run w % | !runhaskell %
+    else
+        :command! Run echo 'Interpreter unavailable'
     endif
 endfunction
 
