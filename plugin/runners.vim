@@ -7,8 +7,11 @@
 
 function! Runners()
 
+    if exists("g:custom_run")
+        :command! Run w % | :execute "!" . g:custom_run
+
     " scripty scripty langs! js depends on node.
-    if (&ft=='ruby')
+    elseif (&ft=='ruby')
         :command! Run w % | !ruby %
     elseif (&ft=='python')
         command! Run w % | !python %
@@ -31,7 +34,7 @@ function! Runners()
         else
             " if no makefile is found, `Run` will try to compile the current
             " file on its own into `vrun.out`, execute it, and clean up after
-            " itself. Useful for quickly trying out something in a lone main() 
+            " itself. Useful for quickly trying out something in a lone main()
             command! Run w % | :!cc -Wall -Werror % -o vrun.out && ./vrun.out && rm vrun.out
         endif
 
@@ -64,6 +67,10 @@ function! Runners()
     elseif (&ft=='haskell')
         " I've never even written haskell why is this even here.
         :command! Run w % | !runhaskell %
+
+    elseif (&ft=='vim')
+        " how could I have forgotten?
+        :command! Run w % | source %
     else
         :command! Run echo 'Interpreter unavailable'
     endif
