@@ -38,6 +38,9 @@ function! Runners()
             command! Run w % | :!cc -Wall -Werror % -o vrun.out && ./vrun.out && rm vrun.out
         endif
 
+    elseif (&ft=='rust')
+        :command! Run w % | :!rustc % -o vrun.out && ./vrun.out && rm vrun.out
+
     " Some less common but useful langs to have around:
     elseif (&ft=='scala')
         :command! Run w % | !scala %
