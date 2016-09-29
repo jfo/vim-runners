@@ -8,7 +8,7 @@
 function! Runners()
 
     if exists("g:custom_run")
-        :command! Run w % | :execute "!" . g:custom_run
+        :command! Run w % | :echo g:custom_run | :execute "!" . g:custom_run
 
     " scripty scripty langs! js depends on node.
     elseif (&ft=='ruby')
