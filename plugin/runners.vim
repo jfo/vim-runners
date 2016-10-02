@@ -39,7 +39,16 @@ function! Runners()
         endif
 
     elseif (&ft=='rust')
-        :command! Run w % | :!rustc % -o vrun.out && ./vrun.out && rm vrun.out
+        if (filereadable("./Cargo.toml") && filereadable("./src/main.rs") && !filereadable("./src/lib.rs"))
+            command! Run w % | :!cargo run
+        elseif (filereadable("./Cargo.toml") && !filereadable("./src/main.rs") && filereadable("./src/lib.rs"))
+            command! Run w % | :!cargo build
+        else
+            " if no makefile is found, `Run` will try to compile the current
+            " file on its own into `vrun.out`, execute it, and clean up after
+            " itself. Useful for quickly trying out something in a lone main()
+            :command! Run w % | :!rustc % -o vrun.out && ./vrun.out && rm vrun.out
+        endif
 
     " Some less common but useful langs to have around:
     elseif (&ft=='scala')
