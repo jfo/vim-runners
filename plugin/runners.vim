@@ -44,9 +44,7 @@ function! Runners()
         elseif (filereadable("./Cargo.toml") && !filereadable("./src/main.rs") && filereadable("./src/lib.rs"))
             command! Run w % | :!cargo build
         else
-            " if no makefile is found, `Run` will try to compile the current
-            " file on its own into `vrun.out`, execute it, and clean up after
-            " itself. Useful for quickly trying out something in a lone main()
+            " if outside of a project, just compile temporarily with rustc
             :command! Run w % | :!rustc % -o vrun.out && ./vrun.out && rm vrun.out
         endif
 
