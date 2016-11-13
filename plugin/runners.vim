@@ -39,10 +39,10 @@ function! Runners()
         endif
 
     elseif (&ft=='rust')
-        if (filereadable("./Cargo.toml") && filereadable("./src/main.rs") && !filereadable("./src/lib.rs"))
-            command! Run w % | :!cargo run
-        elseif (filereadable("./Cargo.toml") && !filereadable("./src/main.rs") && filereadable("./src/lib.rs"))
-            command! Run w % | :!cargo build
+        if (filereadable("./Cargo.toml"))
+            " if inside of a project, run the current binary.
+            " TODO: will have to adjust for a main.rs when using lib code.
+            command! Run w % | :!cargo run --bin %:t:r
         else
             " if outside of a project, just compile temporarily with rustc
             :command! Run w % | :!rustc % -o vrun.out && ./vrun.out && rm vrun.out
