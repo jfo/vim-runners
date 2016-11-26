@@ -28,14 +28,18 @@ function! Runners()
     " run rule would likely rely on the main executable rule, and might or
     " might not clean up after itself, but you could do whatever you want in
     " there.
-    elseif (&ft=='c')
+    elseif (&ft=='c' || &ft=='cpp')
         if filereadable("./makefile")
             command! Run w % | :make! -s run
         else
             " if no makefile is found, `Run` will try to compile the current
             " file on its own into `vrun.out`, execute it, and clean up after
             " itself. Useful for quickly trying out something in a lone main()
-            command! Run w % | :!cc -Wall -Werror % -o vrun.out && ./vrun.out && rm vrun.out
+            if (&ft=='c')
+                command! Run w % | :!cc -Wall -Werror % -o vrun.out && ./vrun.out && rm vrun.out
+            elseif (&ft=='c' || &ft=='cpp')
+                command! Run w % | :!c++ -Wall -Werror % -o vrun.out && ./vrun.out && rm vrun.out
+            endif
         endif
 
     elseif (&ft=='rust')
