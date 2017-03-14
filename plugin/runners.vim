@@ -44,7 +44,7 @@ function! Runners()
 
     elseif (&ft=='rust')
         if (filereadable("./Cargo.toml"))
-            if (filereadable("./Cargo.toml"))
+            if (filereadable("./src/main.rs"))
                 command! Run w % | :!cargo run
             else
                 command! Run w % | :!cargo run --bin %:t:r
