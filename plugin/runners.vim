@@ -17,8 +17,12 @@ function! Runners()
         command! Run w % | !python %
     elseif (&ft=='php')
         :command! Run w % | !php %
-    elseif (&ft=='javascript')
+    elseif (&ft=='javascript' || &ft=='javascript.jsx')
         :command! Run w % | !node %
+    elseif (&ft=='typescript')
+        :command! Run w % | !ts-node %
+    elseif (&ft=='ocaml')
+        :command! Run w % | !ocaml %
 
     elseif (&ft=='sh')
         :command! Run w % | !bash %
