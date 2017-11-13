@@ -58,6 +58,9 @@ function! Runners()
             :command! Run w % | :!rustc % -o vrun.out && ./vrun.out && rm vrun.out
         endif
 
+    elseif (&ft=='zig')
+        :command! Run w % | :!zig test --test-filter run %
+
     " Some less common but useful langs to have around:
     elseif (&ft=='scala')
         :command! Run w % | !scala %
@@ -82,7 +85,7 @@ function! Runners()
         " relies on Petite Chez Scheme, an interpreted version of Chez Scheme.
         :command! Run w % | !petite --script %
     elseif (&ft=='sild')
-        :command! Run w % | !./sild %
+        :command! Run w % | !sild %
 
     elseif (&ft=='haskell')
         " I've never even written haskell why is this even here.
