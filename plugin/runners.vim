@@ -90,6 +90,8 @@ function! Runners()
     elseif (&ft=='haskell')
         " I've never even written haskell why is this even here.
         :command! Run w % | !runhaskell %
+    elseif (&ft=='nix')
+        :command! Run w % | !nix-instantiate --eval %
 
     elseif (&ft=='vim')
         " how could I have forgotten?
