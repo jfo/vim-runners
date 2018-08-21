@@ -26,6 +26,8 @@ function! Runners()
 
     elseif (&ft=='sh')
         :command! Run w % | !bash %
+    elseif (&ft=='make')
+        :command! Run w % | !make
 
     " C magick: if a makefile exists, `Run` will attempt to execute a rule
     " called 'run', essentially delegating its behavior to the makefile. The
