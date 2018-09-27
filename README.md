@@ -55,8 +55,7 @@ itself by deleting it. Useful for quickly trying out something in a lone `main()
 On entry into a buffer, Run is redefined to refer to the appropriate command
 for that filetype. If no mapping is found, `Run` will echo 'Interpreter unavailable'
 
-I mapped `Run` to `<LEADER>g` and I lost 5 pounds. Looks
-like this:
+I mapped `Run` to `<LEADER>g`. Looks like this:
 
 ```
 nnoremap <LEADER>g :Run<CR>
@@ -65,7 +64,7 @@ nnoremap <LEADER>g :Run<CR>
 Installation
 -----------
 
-I like [Vundle](https://github.com/VundleVim/Vundle.vim) but I'm not the boss of you.
+I like [vim-plug](https://github.com/junegunn/vim-plug).
 
 License
 -------
