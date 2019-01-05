@@ -61,7 +61,7 @@ function! Runners()
         endif
 
     elseif (&ft=='zig')
-        :command! Run w % | :!zig test %
+        :command! Run w % | :!zig run %
 
     " Some less common but useful langs to have around:
     elseif (&ft=='scala')
