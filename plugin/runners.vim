@@ -63,7 +63,7 @@ function! Runners()
         endif
 
     elseif (&ft=='zig')
-        :command! Run w % | :!zig run %
+        :command! Run w % | :!zig run % --main-pkg-path $(pwd)
 
     " Some less common but useful langs to have around:
     elseif (&ft=='scala')
