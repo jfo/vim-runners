@@ -21,6 +21,8 @@ function! Runners()
         :command! Run w % | !node %
     elseif (&ft=='typescript')
         :command! Run w % | !ts-node %
+    elseif (&ft=='lua')
+        :command! Run w % | !lua %
     elseif (&ft=='ocaml')
         :command! Run w % | !ocaml %
 
