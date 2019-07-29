@@ -17,13 +17,15 @@ function! Runners()
         command! Run w % | !python %
     elseif (&ft=='php')
         :command! Run w % | !php %
+    elseif (&ft=='perl')
+        :command! Run w % | !perl %
     elseif (&ft=='javascript' || &ft=='javascript.jsx')
         :command! Run w % | !node %
     elseif (&ft=='typescript')
         :command! Run w % | !ts-node %
     elseif (&ft=='lua')
         :command! Run w % | !lua %
-    elseif (&ft=='ocaml')
+    elseif (&ft=='sml')
         :command! Run w % | !ocaml %
 
     elseif (&ft=='sh')
