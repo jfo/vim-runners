@@ -12,28 +12,28 @@ function! Runners()
 
     " scripty scripty langs! js depends on node.
     elseif (&ft=='ruby')
-        :command! Run w % | !ruby %
+        command! Run w % | !ruby %
     elseif (&ft=='python')
         command! Run w % | !python %
     elseif (&ft=='php')
-        :command! Run w % | !php %
+        command! Run w % | !php %
     elseif (&ft=='perl')
-        :command! Run w % | !perl %
+        command! Run w % | !perl %
     elseif (&ft=='javascript' || &ft=='javascript.jsx')
-        :command! Run w % | !node %
+        command! Run w % | !node %
     elseif (&ft=='typescript')
-        :command! Run w % | !ts-node %
+        command! Run w % | !ts-node %
     elseif (&ft=='lua')
-        :command! Run w % | !lua %
+        command! Run w % | !lua %
     elseif (&ft=='sml')
-        :command! Run w % | !ocaml %
+        command! Run w % | !ocaml %
 
     elseif (&ft=='sh')
-        :command! Run w % | !bash %
+        command! Run w % | !bash %
     elseif (&ft=='make')
-        :command! Run w % | !make
+        command! Run w % | !make
     elseif (&ft=='sql')
-        :command! Run w % | !$VIM_RUNNERS_SQL_COMMAND %
+        command! Run w % | !$VIM_RUNNERS_SQL_COMMAND %
 
     " C magick: if a makefile exists, `Run` will attempt to execute a rule
     " called 'run', essentially delegating its behavior to the makefile. The
@@ -67,45 +67,45 @@ function! Runners()
         endif
 
     elseif (&ft=='zig')
-        :command! Run w % | :!zig run % --main-pkg-path $(pwd)
+        command! Run w % | :!zig run % --main-pkg-path $(pwd)
 
     " Some less common but useful langs to have around:
     elseif (&ft=='scala')
-        :command! Run w % | !scala %
+        command! Run w % | !scala %
     elseif (&ft=='swift')
-        :command! Run w % | !swift %
+        command! Run w % | !swift %
     elseif (&ft=='go')
-        :command! Run w % | !go run %
+        command! Run w % | !go run %
 
 
     " Stuff you probably don't need:
     elseif (&ft=='chuck')
         " Chuck is an awesome music language!
-        :command! Run w % | !chuck %
+        command! Run w % | !chuck %
     elseif (&ft=='markdown')
         " Who actually used the original markdown perl script anymore anyway?
-        :command! Run w % | !markdown %
+        command! Run w % | !markdown %
 
     " lol lisp
     elseif (&ft=='lisp')
-        :command! Run w % | !clisp %
+        command! Run w % | !clisp %
     elseif (&ft=='scheme')
         " relies on Petite Chez Scheme, an interpreted version of Chez Scheme.
-        :command! Run w % | !petite --script %
+        command! Run w % | !petite --script %
     elseif (&ft=='sild')
-        :command! Run w % | !sild %
+        command! Run w % | !sild %
 
     elseif (&ft=='haskell')
         " I've never even written haskell why is this even here.
-        :command! Run w % | !runhaskell %
+        command! Run w % | !runhaskell %
     elseif (&ft=='nix')
-        :command! Run w % | !nix-instantiate --eval %
+        command! Run w % | !nix-instantiate --eval %
 
     elseif (&ft=='vim')
         " how could I have forgotten?
-        :command! Run w % | source %
+        command! Run w % | source %
     else
-        :command! Run echo 'Interpreter unavailable'
+        command! Run echo 'Interpreter unavailable'
     endif
 endfunction
 
