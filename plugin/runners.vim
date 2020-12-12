@@ -23,6 +23,8 @@ function! Runners()
         command! Run w % | !node %
     elseif (&ft=='typescript')
         command! Run w % | !ts-node %
+    elseif (&ft=='clojure')
+        command! Run w % | !clj %
     elseif (&ft=='lua')
         command! Run w % | !lua %
     elseif (&ft=='sml')
@@ -67,7 +69,7 @@ function! Runners()
         endif
 
     elseif (&ft=='zig')
-        command! Run w % | :!zig run % --main-pkg-path $(pwd)
+        command! Run w % | :!zig run %
 
     " Some less common but useful langs to have around:
     elseif (&ft=='scala')
