@@ -35,7 +35,7 @@ function! Runners()
     elseif (&ft=='make')
         command! Run w % | !make
     elseif (&ft=='sql')
-        command! Run w % | !$VIM_RUNNERS_SQL_COMMAND %
+        command! Run w % | !$VIM_RUNNERS_SQL_COMMAND -f %
 
     " C magick: if a makefile exists, `Run` will attempt to execute a rule
     " called 'run', essentially delegating its behavior to the makefile. The
